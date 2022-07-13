@@ -1,11 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { PokemonsService } from './pokemons.service';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
+import { PokemonsService } from './pokemons.service';
 
 @Controller('pokemons')
 export class PokemonsController {
-  constructor(private readonly pokemonsService: PokemonsService) {}
+  constructor(private readonly pokemonsService: PokemonsService) { }
 
   @Post()
   create(@Body() createPokemonDto: CreatePokemonDto) {

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { NamedAPIResourceList, PokemonClient } from 'pokenode-ts';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 
@@ -8,8 +9,9 @@ export class PokemonsService {
     return 'This action adds a new pokemon';
   }
 
-  findAll() {
-    return `This action returns all pokemons`;
+  findAll(): Promise<NamedAPIResourceList> {
+    const api = new PokemonClient();
+    return api.listPokemons();
   }
 
   findOne(id: number) {
